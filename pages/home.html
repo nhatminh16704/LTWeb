@@ -1,0 +1,138 @@
+<div class="container active" id="home">
+  <!-- Banner -->
+  <div class="banner">
+    <img src="assets/image/banner.jpg" ="Banner Khám Phá" />
+  </div>
+
+  <!-- Gợi ý bài hát -->
+  <section class="music-suggestions">
+    <h2>Gợi ý hôm nay</h2>
+    <div class="songs">
+      <div
+        class="song"
+        onclick="playSong('assets/audio/Orange.mp3', 'Orange - 7!!')"
+      >
+        <img src="assets/image/orange.png" alt="Bài hát 1" />
+        <p>Orange - 7!!</p>
+        <div class="play-icon"><i class="fas fa-play"></i></div>
+      </div>
+      <div
+        class="song"
+        onclick="playSong('assets/audio/sparkle.mp3', 'Sparkle - Radwimps')"
+      >
+        <img src="assets/image/sparkle.png" alt="Bài hát 2" />
+        <p>Sparkle - Radwimps</p>
+        <div class="play-icon"><i class="fas fa-play"></i></div>
+      </div>
+      <div
+        class="song"
+        onclick="playSong('assets/audio/song3.mp3', 'Bài hát 3 - Ca sĩ C')"
+      >
+        <img src="assets/image/suzume.png" alt="Bài hát 3" />
+        <p>Suzume - Radwimps</p>
+        <div class="play-icon"><i class="fas fa-play"></i></div>
+      </div>
+      <div
+        class="song"
+        onclick="playSong('assets/audio/Orange.mp3', 'Orange - 7!!')"
+      >
+        <img src="assets/image/orange.png" alt="Bài hát 1" />
+        <p>Orange - 7!!</p>
+        <div class="play-icon"><i class="fas fa-play"></i></div>
+      </div>
+      <div
+        class="song"
+        onclick="playSong('assets/audio/sparkle.mp3', 'Sparkle - Radwimps')"
+      >
+        <img src="assets/image/sparkle.png" alt="Bài hát 2" />
+        <p>Sparkle - Radwimps</p>
+        <div class="play-icon"><i class="fas fa-play"></i></div>
+      </div>
+      <div
+        class="song"
+        onclick="playSong('assets/audio/song3.mp3', 'Bài hát 3 - Ca sĩ C')"
+      >
+        <img src="assets/image/suzume.png" alt="Bài hát 3" />
+        <p>Suzume - Radwimps</p>
+        <div class="play-icon"><i class="fas fa-play"></i></div>
+      </div>
+      <div
+        class="song"
+        onclick="playSong('assets/audio/Orange.mp3', 'Orange - 7!!')"
+      >
+        <img src="assets/image/orange.png" alt="Bài hát 1" />
+        <p>Orange - 7!!</p>
+        <div class="play-icon"><i class="fas fa-play"></i></div>
+      </div>
+      <div
+        class="song"
+        onclick="playSong('assets/audio/sparkle.mp3', 'Sparkle - Radwimps')"
+      >
+        <img src="assets/image/sparkle.png" alt="Bài hát 2" />
+        <p>Sparkle - Radwimps</p>
+        <div class="play-icon"><i class="fas fa-play"></i></div>
+      </div>
+      <div
+        class="song"
+        onclick="playSong('assets/audio/song3.mp3', 'Bài hát 3 - Ca sĩ C')"
+      >
+        <img src="assets/image/suzume.png" alt="Bài hát 3" />
+        <p>Suzume - Radwimps</p>
+        <div class="play-icon"><i class="fas fa-play"></i></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Playlist nổi bật -->
+  <section class="featured-playlists">
+    <h2>Playlist nổi bật</h2>
+    <div class="playlists">
+      <div class="playlist">
+        <img src="assets/image/music.png" alt="Playlist 1" />
+        <p>Playlist Thư Giãn</p>
+      </div>
+      <div class="playlist">
+        <img src="assets/image/music.png" alt="Playlist 2" />
+        <p>Playlist Tập Trung</p>
+      </div>
+      <div class="playlist">
+        <img src="assets/image/music.png" alt="Playlist 3" />
+        <p>Playlist Yêu Thích</p>
+      </div>
+      <div class="playlist">
+        <img src="assets/image/music.png" alt="Playlist 1" />
+        <p>Playlist Thư Giãn</p>
+      </div>
+      <div class="playlist">
+        <img src="assets/image/music.png" alt="Playlist 2" />
+        <p>Playlist Tập Trung</p>
+      </div>
+      <div class="playlist">
+        <img src="assets/image/music.png" alt="Playlist 3" />
+        <p>Playlist Yêu Thích</p>
+      </div>
+      <div class="playlist">
+        <img src="assets/image/music.png" alt="Playlist 1" />
+        <p>Playlist Thư Giãn</p>
+      </div>
+      <div class="playlist">
+        <img src="assets/image/music.png" alt="Playlist 2" />
+        <p>Playlist Tập Trung</p>
+      </div>
+      <div class="playlist">
+        <img src="assets/image/music.png" alt="Playlist 3" />
+        <p>Playlist Yêu Thích</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Thanh điều khiển âm thanh -->
+  <div class="audio-player" style="display: none">
+    <audio id="audio-player" controls>
+      <!-- Audio sẽ được tải vào khi bài hát được chọn -->
+    </audio>
+    <div class="now-playing-info">
+      <p>Đang phát: <span id="song-title">Không có bài hát nào</span></p>
+    </div>
+  </div>
+</div>

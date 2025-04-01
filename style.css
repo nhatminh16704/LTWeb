@@ -1,0 +1,342 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #121212;
+  color: #e0e0e0;
+  display: flex;
+  font-size: 16px;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background-color: #1e1e1e;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 20px 0;
+  overflow-y: auto;
+  border-right: 1px solid #333;
+}
+
+/* Logo */
+.logo {
+  padding: 0 20px;
+  margin-bottom: 20px;
+}
+
+.logo h2 {
+  color: #fff;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+/* Menu */
+.menu {
+  list-style: none;
+  margin-bottom: 20px;
+}
+
+.menu li {
+  margin: 6px 0;
+}
+
+.menu li a {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  color: #9e9e9e;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.menu li a i {
+  margin-right: 12px;
+  font-size: 18px;
+}
+
+.menu li a:hover,
+.menu li a.active {
+  background-color: #2c2c2c;
+  color: #fff;
+}
+
+/* Main content */
+main {
+  margin-left: 250px;
+  padding: 24px;
+  width: calc(100% - 250px);
+}
+
+.container {
+  display: block;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-size: 17px;
+}
+
+
+
+/* Banner */
+.banner img {
+  width: 100%;
+  max-height: 200px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  object-fit: cover;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.banner {
+  margin-bottom: 50px;
+}
+
+/* Gợi ý bài hát */
+.music-suggestions h2,
+.featured-playlists h2 {
+  margin-bottom: 10px;
+  font-size: 22px;
+}
+
+.songs, .playlists {
+  display: flex;
+  gap: 20px;
+}
+
+.song, .playlist {
+  text-align: center;
+}
+
+.song img, .playlist img {
+  width: 120px;
+  height: 120px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+  object-fit: cover;
+}
+
+.song img:hover, .playlist img:hover {
+  transform: scale(1.1);
+}
+
+.song p, .playlist p {
+  margin-top: 5px;
+  font-size: 14px;
+  color: #ccc;
+}
+
+
+/* Thanh điều khiển âm thanh */
+.audio-player {
+  width: 100%;
+  max-width: 500px;
+  margin-top: 20px;
+  text-align: center;
+  background-color: #333;
+  padding: 10px;
+  border-radius: 5px;
+  position: fixed; /* Fix ở dưới cùng của trang */
+  bottom: 0; /* Đặt thanh điều khiển ở dưới cùng */
+  left: 50%;
+  transform: translateX(-50%); /* Căn giữa */
+  display: none; /* Ẩn thanh khi không có bài hát nào phát */
+  z-index: 9999; /* Đảm bảo thanh điều khiển luôn ở trên các phần tử khác */
+}
+
+.audio-player audio {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.now-playing-info {
+  color: #fff;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.now-playing-info span {
+  font-weight: bold;
+}
+
+/* Bảng Xếp Hạng (BXH) */
+#bxh {
+  padding: 20px;
+  background-color: #121212;
+  color: #e0e0e0;
+  font-size: 16px;
+}
+
+#bxh h1 {
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+
+#bxh p {
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #9e9e9e;
+}
+
+/* Bỏ style của các bài hát trong BXH */
+#bxh .music-suggestions {
+  display: none; /* Ẩn phần gợi ý bài hát */
+}
+
+#bxh .song {
+  display: block; /* Nếu có song, bỏ các style trước đó */
+}
+
+.music-bxh ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.music-bxh li {
+  font-size: 18px;
+  margin: 10px 0;
+  color: #fff;
+}
+
+/* Container */
+#bxh.container {
+    padding: 20px;
+    background-color: #1a1a1a;
+    color: white;
+}
+
+#bxh.container h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+#bxh.container h1 i {
+    margin-left: 10px;
+    color: #fff;
+    font-size: 20px;
+}
+
+#bxh.container p {
+    font-size: 14px;
+    color: #ccc;
+    margin-bottom: 20px;
+}
+
+/* Danh sách bài hát */
+#bxh .music-bxh ul {
+    list-style: none;
+    padding: 0;
+}
+
+#bxh .song-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #2f2f2f;
+    position: relative;
+}
+
+#bxh .song-item:hover {
+    background-color: #2f2f2f;
+    cursor: pointer;
+}
+
+#bxh .song-item:hover::before {
+    content: "\f144"; /* Icon play từ Font Awesome */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    left: 9px;
+    color: #fff;
+    font-size: 25px;
+}
+
+/* Thứ hạng */
+#bxh .rank {
+    width: 30px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+#bxh .rank-1 {
+    color: #ff5555; /* Màu đỏ cho hạng 1 */
+}
+
+#bxh .rank-2 {
+    color: #55ff55; /* Màu xanh lá cho hạng 2 */
+}
+
+#bxh .rank-3 {
+    color: #5555ff; /* Màu xanh dương cho hạng 3 */
+}
+
+/* Thay đổi thứ hạng */
+#bxh .change {
+    width: 20px;
+    text-align: center;
+    color: #ccc;
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+#bxh .change.up::before {
+    content: "\f0d8"; /* Icon mũi tên lên */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    color: #55ff55;
+}
+
+#bxh .change.down::before {
+    content: "\f0d7"; /* Icon mũi tên xuống */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    color: #ff5555;
+}
+
+/* Hình ảnh bài hát */
+#bxh .song-item img {
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+/* Thông tin bài hát */
+#bxh .song-info {
+    flex: 1;
+}
+
+#bxh .song-info h3 {
+    font-size: 14px;
+    color: #fff;
+    margin: 0;
+}
+
+#bxh .song-info p {
+    font-size: 12px;
+    color: #ccc;
+    margin: 0;
+}
+
+#bxh .song-info .album {
+    color: #888;
+}
+
+/* Thời lượng */
+#bxh .duration {
+    font-size: 12px;
+    color: #ccc;
+    margin-left: 10px;
+}
