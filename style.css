@@ -1,3 +1,30 @@
+/* Root variables */
+:root {
+  /* Colors */
+  --bg-primary: #121212;
+  --bg-secondary: #1a1a1a;
+  --bg-tertiary: #1e1e1e;
+  --bg-hover: #2c2c2c;
+  --bg-card: #2f2f2f;
+  --border-color: #333;
+  --text-primary: #fff;
+  --text-secondary: #e0e0e0;
+  --text-tertiary: #ccc;
+  --text-muted: #9e9e9e;
+  --text-dimmed: #888;
+  --accent-red: #ff5555;
+  --accent-green: #55ff55;
+  --accent-blue: #5555ff;
+  
+  /* Sizes */
+  --sidebar-width: 250px;
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 10px;
+  --card-gap: 15px;
+  --section-spacing: 40px;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -6,23 +33,23 @@
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #121212;
-  color: #e0e0e0;
+  background-color: var(--bg-primary);
+  color: var(--text-secondary);
   display: flex;
   font-size: 16px;
 }
 
 /* Sidebar */
 .sidebar {
-  width: 250px;
-  background-color: #1e1e1e;
+  width: var(--sidebar-width);
+  background-color: var(--bg-tertiary);
   height: 100vh;
   position: fixed;
   top: 0;
   left: 0;
   padding: 20px 0;
   overflow-y: auto;
-  border-right: 1px solid #333;
+  border-right: 1px solid var(--border-color);
 }
 
 /* Logo */
@@ -31,9 +58,8 @@ body {
   margin-bottom: 20px;
 }
 
-
 .logo h2 {
-  color: #fff;
+  color: var(--text-primary);
   font-size: 28px;
   font-weight: bold;
 }
@@ -52,7 +78,7 @@ body {
   display: flex;
   align-items: center;
   padding: 12px 20px;
-  color: #9e9e9e;
+  color: var(--text-muted);
   text-decoration: none;
   font-size: 16px;
 }
@@ -64,15 +90,15 @@ body {
 
 .menu li a:hover,
 .menu li a.active {
-  background-color: #2c2c2c;
-  color: #fff;
+  background-color: var(--bg-hover);
+  color: var(--text-primary);
 }
 
 /* Main content */
 main {
-  margin-left: 250px;
+  margin-left: var(--sidebar-width);
   padding: 24px;
-  width: calc(100% - 250px);
+  width: calc(100% - var(--sidebar-width));
 }
 
 .container {
@@ -89,20 +115,18 @@ main {
 
 .banner img {
   width: 100%;
-  border-radius: 10px;
+  border-radius: var(--border-radius-lg);
   margin: 0 auto 20px;
   display: block;
 }
 
-
-
-
-
-#top100 .banner img {
-  height: 300px;
+/* Section headings */
+.section-heading {
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: var(--text-primary);
 }
 
-/* Common section headings */
 .music-suggestions h2,
 .featured-playlists h2,
 #generes .generes-section h2,
@@ -110,7 +134,38 @@ main {
 #home .featured-playlists h2 {
   font-size: 20px;
   margin-bottom: 15px;
-  color: #fff;
+  color: var(--text-primary);
+}
+
+/* Grid layouts */
+.grid-layout {
+  display: grid;
+  gap: var(--card-gap);
+}
+
+.grid-large {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--card-gap);
+}
+
+.grid-medium {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--card-gap);
+}
+
+#generes .generes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--card-gap);
+}
+
+#top100 .top100-grid, 
+#home .playlists {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--card-gap);
 }
 
 /* Songs and playlists */
@@ -126,7 +181,7 @@ main {
 .song img, .playlist img {
   width: 120px;
   height: 120px;
-  border-radius: 10px;
+  border-radius: var(--border-radius-lg);
   cursor: pointer;
   transition: transform 0.3s ease-in-out;
   object-fit: cover;
@@ -139,7 +194,37 @@ main {
 .song p, .playlist p {
   margin-top: 5px;
   font-size: 14px;
-  color: #ccc;
+  color: var(--text-tertiary);
+}
+
+/* Card styles */
+.card {
+  position: relative;
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.02);
+  cursor: pointer;
+}
+
+/* Apply card styles */
+#generes .generes-card, 
+#top100 .top100-card, 
+#home .playlist-card {
+  position: relative;
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+#generes .generes-card:hover, 
+#top100 .top100-card:hover, 
+#home .playlist-card:hover {
+  transform: scale(1.02);
+  cursor: pointer;
 }
 
 /* Audio player */
@@ -148,7 +233,7 @@ main {
   max-width: 500px;
   margin-top: 20px;
   text-align: center;
-  background-color: #333;
+  background-color: var(--border-color);
   padding: 10px;
   border-radius: 5px;
   position: fixed;
@@ -165,7 +250,7 @@ main {
 }
 
 .now-playing-info {
-  color: #fff;
+  color: var(--text-primary);
   font-size: 14px;
   margin-top: 5px;
 }
@@ -177,8 +262,8 @@ main {
 /* BXH Styles */
 #bxh {
   padding: 20px;
-  background-color: #1a1a1a;
-  color: white;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
 }
 
 #bxh h1 {
@@ -190,13 +275,13 @@ main {
 
 #bxh h1 i {
   margin-left: 10px;
-  color: #fff;
+  color: var(--text-primary);
   font-size: 20px;
 }
 
 #bxh p {
   font-size: 14px;
-  color: #ccc;
+  color: var(--text-tertiary);
   margin-bottom: 20px;
 }
 
@@ -213,12 +298,12 @@ main {
   display: flex;
   align-items: center;
   padding: 10px 0;
-  border-bottom: 1px solid #2f2f2f;
+  border-bottom: 1px solid var(--bg-card);
   position: relative;
 }
 
 #bxh .song-item:hover {
-  background-color: #2f2f2f;
+  background-color: var(--bg-card);
   cursor: pointer;
 }
 
@@ -228,50 +313,53 @@ main {
   font-weight: 900;
   position: absolute;
   left: 9px;
-  color: #fff;
+  color: var(--text-primary);
   font-size: 25px;
 }
 
-/* Rank styles */
+/* Rank and change indicators */
+#bxh .rank, 
+#bxh .change {
+  text-align: center;
+  margin-right: 10px;
+}
+
 #bxh .rank {
   width: 30px;
-  text-align: center;
   font-size: 18px;
   font-weight: bold;
-  margin-right: 10px;
 }
 
-#bxh .rank-1 { color: #ff5555; }
-#bxh .rank-2 { color: #55ff55; }
-#bxh .rank-3 { color: #5555ff; }
-
-/* Change indicators */
 #bxh .change {
   width: 20px;
-  text-align: center;
-  color: #ccc;
+  color: var(--text-tertiary);
   font-size: 14px;
-  margin-right: 10px;
 }
 
+/* Rank colors */
+#bxh .rank-1 { color: var(--accent-red); }
+#bxh .rank-2 { color: var(--accent-green); }
+#bxh .rank-3 { color: var(--accent-blue); }
+
+/* Change indicators */
 #bxh .change.up::before {
   content: "\f0d8";
   font-family: "Font Awesome 6 Free";
   font-weight: 900;
-  color: #55ff55;
+  color: var(--accent-green);
 }
 
 #bxh .change.down::before {
   content: "\f0d7";
   font-family: "Font Awesome 6 Free";
   font-weight: 900;
-  color: #ff5555;
+  color: var(--accent-red);
 }
 
 #bxh .song-item img {
   width: 40px;
   height: 40px;
-  border-radius: 4px;
+  border-radius: var(--border-radius-sm);
   margin-right: 10px;
 }
 
@@ -281,79 +369,55 @@ main {
 
 #bxh .song-info h3 {
   font-size: 14px;
-  color: #fff;
+  color: var(--text-primary);
   margin: 0;
 }
 
 #bxh .song-info p {
   font-size: 12px;
-  color: #ccc;
+  color: var(--text-tertiary);
   margin: 0;
 }
 
 #bxh .song-info .album {
-  color: #888;
+  color: var(--text-dimmed);
 }
 
 #bxh .duration {
   font-size: 12px;
-  color: #ccc;
+  color: var(--text-tertiary);
   margin-left: 10px;
 }
 
-/* Genres styles */
+/* Genres and Top100 container styles */
 #generes.container, #top100.container {
   padding: 20px;
-  background-color: #1a1a1a;
-  color: white;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
 }
 
+/* Banner specific styles */
 #generes .banner img {
   max-height: 300px;
   object-fit: cover;
 }
 
+#top100 .banner img {
+  height: 300px;
+}
+
+/* Section margins */
 #generes .generes-section, #top100 .top100-section {
-  margin-bottom: 40px;
+  margin-bottom: var(--section-spacing);
 }
 
-/* Grid layouts */
-#generes .generes-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 15px;
-}
-
-#top100 .top100-grid, #home .playlists {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 15px;
-}
-
-/* Card styles */
-#generes .generes-card, 
-#top100 .top100-card, 
-#home .playlist-card {
-  position: relative;
-  border-radius: 8px;
-  overflow: hidden;
-  transition: transform 0.3s ease;
-}
-
-#generes .generes-card:hover, 
-#top100 .top100-card:hover, 
-#home .playlist-card:hover {
-  transform: scale(1.02);
-  cursor: pointer;
-}
-
-/* Genre specific styles */
+/* Genre specific styles - consolidated */
 #generes .generes-card {
   height: 150px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #2f2f2f;
+  background-color: var(--bg-card);
 }
 
 #generes .generes-card img {
@@ -369,71 +433,24 @@ main {
   position: relative;
   z-index: 2;
   font-size: 18px;
-  color: #fff;
+  color: var(--text-primary);
   text-align: center;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
   margin: 0;
 }
 
+/* Cards with background color */
 #generes .generes-card[style*="background-color"] {
   background-size: cover;
   background-position: center;
 }
 
-#generes .generes-card:not([style*="background-color"]) {
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 15px;
-}
-
-/* generes card */
-#generes .generes-card {
-  position: relative;
-  border-radius: 8px;
-  overflow: hidden;
-  height: 150px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #2f2f2f;
-  transition: transform 0.3s ease;
-}
-
-#generes .generes-card:hover {
-  transform: scale(1.02);
-  cursor: pointer;
-}
-
-#generes .generes-card img {
-  width: 100%;
-  object-fit: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-}
-
-#generes .generes-card h3 {
-  position: relative;
-  z-index: 2;
-  font-size: 18px;
-  color: #fff;
-  text-align: center;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-  margin: 0;
-}
-
-/* Cards với màu nền (BXH Nhạc Mới, Top 100, Quốc Gia) */
-#generes .generes-card[style*="background-color"] {
-  background-size: cover;
-  background-position: center;
-}
-
-/* Cards với hình ảnh (Phù Nữ Là Để Yêu, Nhạc Trẻ) */
+/* Cards with images */
 #generes .generes-card:not([style*="background-color"]) {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7));
 }
 
-/* Nút Tắt Cả */
+/* Toggle button */
 #generes .toggle-all {
   text-align: center;
   margin-top: 20px;
@@ -441,8 +458,8 @@ main {
 
 #generes .toggle-all button {
   background-color: transparent;
-  border: 1px solid #fff;
-  color: #fff;
+  border: 1px solid var(--text-primary);
+  color: var(--text-primary);
   padding: 8px 20px;
   border-radius: 20px;
   font-size: 14px;
@@ -451,125 +468,51 @@ main {
 }
 
 #generes .toggle-all button:hover {
-  background-color: #fff;
-  color: #1a1a1a;
-}
-
-/* Container */
-#top100.container {
-  padding: 20px;
-  background-color: #1a1a1a;
-  color: white;
-}
-
-/* Banner */
-#top100 .banner img {
-  width: 100%;
-  height: 300px;
-  border-radius: 10px;
-  margin-bottom: 20px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-
-/* Section */
-#top100 .top100-section {
-  margin-bottom: 40px;
-}
-
-#top100 .top100-section h2 {
-  font-size: 20px;
-  margin-bottom: 15px;
-  color: #fff;
-}
-
-/* Grid layout */
-#top100 .top100-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 15px;
+  background-color: var(--text-primary);
+  color: var(--bg-secondary);
 }
 
 /* Top 100 card */
-#top100 .top100-card {
-  position: relative;
-  border-radius: 8px;
-  overflow: hidden;
-  transition: transform 0.3s ease;
-}
-
-#top100 .top100-card:hover {
-  transform: scale(1.02);
-  cursor: pointer;
-}
-
 #top100 .top100-card img {
   width: 100%;
   height: 200px;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: var(--border-radius-md);
 }
 
 #top100 .top100-card h3 {
   font-size: 14px;
-  color: #fff;
+  color: var(--text-primary);
   margin: 10px 0 5px;
 }
 
 #top100 .top100-card p {
   font-size: 12px;
-  color: #ccc;
+  color: var(--text-tertiary);
   margin: 0;
 }
 
-/* Featured Playlists */
+/* Home Featured Playlists */
 #home .featured-playlists {
-  margin-top: 40px;
-}
-
-#home .featured-playlists h2 {
-  font-size: 20px;
-  margin-bottom: 15px;
-  color: #fff;
-}
-
-/* Playlists grid */
-#home .playlists {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 15px;
+  margin-top: var(--section-spacing);
 }
 
 /* Playlist card */
-#home .playlist-card {
-  position: relative;
-  border-radius: 8px;
-  overflow: hidden;
-  transition: transform 0.3s ease;
-}
-
-#home .playlist-card:hover {
-  transform: scale(1.02);
-  cursor: pointer;
-}
-
 #home .playlist-card img {
   width: 100%;
   height: 200px;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: var(--border-radius-md);
 }
 
 #home .playlist-card h3 {
   font-size: 14px;
-  color: #fff;
+  color: var(--text-primary);
   margin: 10px 0 5px;
 }
 
 #home .playlist-card p {
   font-size: 12px;
-  color: #ccc;
+  color: var(--text-tertiary);
   margin: 0;
 }
